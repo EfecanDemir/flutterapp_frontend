@@ -32,7 +32,7 @@ class _SplashState extends State<Splash> {
   Widget build(BuildContext context) {
     return Scaffold(
       body:Center(
-        child: Text("Hoşgeldiniz..",style: Theme.of(context).textTheme.headline4,),
+        child: Text("Hoşgeldiniz.. İlk gösterim",style: Theme.of(context).textTheme.headline4,),
       ),
     );
   }
