@@ -1,24 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutterapp_frontend/riverpod/riverpod_managment.dart';
-import 'package:flutterapp_frontend/views/register.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:grock/grock.dart';
+import 'package:flutterapp_frontend/riverpod/riverpod_managment.dart';
 import 'package:slide_to_act/slide_to_act.dart';
 
-class Login extends ConsumerStatefulWidget {
-  final VoidCallback showRegisterPage;
-
-  const Login({Key? key,required this.showRegisterPage}):super(key:key);
+class Register extends ConsumerStatefulWidget {
+  final VoidCallback showLoginPage;
+  const Register({Key? key,required this.showLoginPage}):super(key:key);
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() => _LoginState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _RegisterState();
 }
 
-class _LoginState extends ConsumerState<Login> {
-  Future signUp()async{
-    
-  }
+class _RegisterState extends ConsumerState<Register> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,18 +28,42 @@ class _LoginState extends ConsumerState<Login> {
               Icons.android,
               size: 100,
             ),
-            SizedBox(height: 40),
+            SizedBox(height: 10),
 
-            Text('FlutterAppFrontend',
+            Text('Kayıt ol',
               style:GoogleFonts.bebasNeue(
                 fontSize: 36,
               ),
             ),
             const SizedBox(height: 10),
-            const Text('Uygulama giriş kısmına hoşgeldin.',
+            const Text('Kullanıcı bilgilerini giriniz.',
             style: TextStyle(
               fontSize:20, ),),
-            SizedBox(height: 40),
+            SizedBox(height: 20),
+
+            // kullanıcı adı giriş 
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25.0),
+              child: Container(
+                decoration: BoxDecoration(
+                  color:Colors.grey[200],
+                  border: Border.all(color:Colors.white),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: TextField(
+                  controller: ref.read(registerRiverpod).userName,
+                   obscureText: false,
+                  decoration: InputDecoration(
+                    hintText: "Kullanıcı Adı",
+                    border: OutlineInputBorder(
+                      borderRadius: 10.allBR,
+                    ),
+                    ),
+                ),
+              ),
+            ),
+
+            SizedBox(height: 15),
             // email giriş 
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25.0),
@@ -55,7 +74,7 @@ class _LoginState extends ConsumerState<Login> {
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: TextField(
-                  controller: ref.read(loginRiverpod).email,
+                  controller: ref.read(registerRiverpod).email,
                    obscureText: false,
                   decoration: InputDecoration(
                     hintText: "Email",
@@ -66,6 +85,7 @@ class _LoginState extends ConsumerState<Login> {
                 ),
               ),
             ),
+
             SizedBox(height: 15),
             // şifre giriş
              Padding(
@@ -77,7 +97,7 @@ class _LoginState extends ConsumerState<Login> {
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: TextField(
-                  controller: ref.read(loginRiverpod).password,
+                  controller: ref.read(registerRiverpod).password,
                    obscureText: true,
                   decoration: InputDecoration(
                     hintText: "Şifre",
@@ -88,33 +108,31 @@ class _LoginState extends ConsumerState<Login> {
                 ),
               ),
             ),
+            
             SizedBox(height: 15),
             //giriş yap buton
             Padding(
               padding: const EdgeInsets.symmetric(horizontal:25.0),
               child: SizedBox(
                 width: Grock.width,
-                child: Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: SlideAction(
-                    height: 30,
-                    onSubmit: ()=>ref.read(loginRiverpod).fetch(),
-                    child: const Text(
-                      "Giriş Yap",
-                    ),
-                  ),
-                ),
+                 child: SlideAction(
+                     height: 30,
+                     onSubmit: ()=>ref.read(registerRiverpod).fetch(),
+                     child: const Text(
+                       "Kayıt Ol",
+                     ),
+                   ),
               ),
             ),
-            SizedBox(height: 10),
+            SizedBox(height: 12),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                  Text('Hala üye olmadın mı ?',style: TextStyle(fontWeight: FontWeight.bold),),
+                  Text('Uygulamaya üye misin ?',style: TextStyle(fontWeight: FontWeight.bold),),
                   GestureDetector(
-                    onTap: widget.showRegisterPage,
+                    onTap: widget.showLoginPage,
                     child: Text(
-                      ' Hemen üye ol',
+                      ' Hemen giriş yap',
                       style: TextStyle(
                         color: Colors.blue,
                         fontWeight: FontWeight.bold

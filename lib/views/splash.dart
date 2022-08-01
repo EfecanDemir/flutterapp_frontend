@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterapp_frontend/auth/auth_page.dart';
 import 'package:flutterapp_frontend/views/home.dart';
 import 'package:flutterapp_frontend/views/login.dart';
 import 'package:get_storage/get_storage.dart';
@@ -22,7 +23,7 @@ class _SplashState extends State<Splash> {
       if (box.read("token")!=null) {
         Grock.toRemove(Home());
       }else{
-        Grock.toRemove(Login());
+        Grock.toRemove(AuthPage());
       }
     });
     // TODO: implement initState

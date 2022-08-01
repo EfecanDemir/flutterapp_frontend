@@ -39,4 +39,29 @@ class Service{
       return null;
     }
   }
+
+
+
+    Future<LoginModel?> registerCall({
+    required String userName,
+    required String email,
+    required String password
+  })async{
+    Map<String,dynamic>json={
+            "userName":userName,
+            "email":email,
+            "password":password
+    };
+    var response=await dio.post(baseUrl+"api/auth/register",data: json);
+    if(response.statusCode==200){
+      var result=LoginModel.fromJson(response.data);
+      log("Gelen Response => ${response.data}");
+      return result;
+    }else{
+      throw("Bir sorun oluştu ${response.statusCode}");
+      return null;
+    }
+  }
+
+
 }

@@ -24,7 +24,7 @@ class _HomeState extends ConsumerState<Home> {
     var state = ref.watch(homeRiverpod);
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           "Home Page",
         ),
       ),
