@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutterapp_frontend/constants.dart';
 import 'package:flutterapp_frontend/views/login.dart';
 import 'package:flutterapp_frontend/views/splash.dart';
 import 'package:get_storage/get_storage.dart';
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
       navigatorKey: Grock.navigationKey,
       scaffoldMessengerKey: Grock.scaffoldMessengerKey, //kontrol edilecek snackbarMessengerKey olmalı
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: kPrimaryColor,
       ),
       home: Splash(),
     );

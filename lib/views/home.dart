@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutterapp_frontend/components/body.dart';
 import 'package:flutterapp_frontend/riverpod/home_riverpod.dart';
 import 'package:flutterapp_frontend/riverpod/riverpod_managment.dart';
 import 'package:grock/grock.dart';
@@ -23,31 +24,18 @@ class _HomeState extends ConsumerState<Home> {
   Widget build(BuildContext context) {
     var state = ref.watch(homeRiverpod);
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          "Home Page",
-        ),
+      appBar: buildAppBar(),
+      body: Body(),
+    );
+  }
+
+  AppBar buildAppBar() {
+    return AppBar(
+      elevation: 0,
+      leading: IconButton(
+        icon: const Icon(Icons.menu),
+        onPressed:(){},
       ),
-      body: state.isLoading
-          ? const Center(
-              child: CircularProgressIndicator(),
-            )
-          : GrockList(
-              itemCount: state.datas.length,
-              itemBuilder: (context, index) {
-                var item = state.datas[index]!;
-                return Card(
-                  child: ListTile(
-                    title: Text(
-                      item.categoryName ?? "",
-                    ),
-                    subtitle: Text(
-                      item.categoryName ?? "",
-                    ),
-                  ),
-                );
-              },
-            ),
     );
   }
 }
