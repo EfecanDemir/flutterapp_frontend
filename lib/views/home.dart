@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutterapp_frontend/components/body.dart';
+import 'package:flutterapp_frontend/components/bottom_nav_bar.dart';
+import 'package:flutterapp_frontend/constants.dart';
 import 'package:flutterapp_frontend/riverpod/home_riverpod.dart';
 import 'package:flutterapp_frontend/riverpod/riverpod_managment.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:grock/grock.dart';
 
 
@@ -26,6 +29,7 @@ class _HomeState extends ConsumerState<Home> {
     return Scaffold(
       appBar: buildAppBar(),
       body: Body(),
+      bottomNavigationBar: BottomNavBar(),
     );
   }
 
