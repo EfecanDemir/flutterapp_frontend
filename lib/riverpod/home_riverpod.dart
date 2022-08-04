@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterapp_frontend/model/task_model.dart';
 import 'package:flutterapp_frontend/service/service.dart';
 import 'package:grock/grock.dart';
-import 'package:flutterapp_frontend/components/loading_popup.dart';
+import 'package:flutterapp_frontend/views/home/components/loading_popup.dart';
 
 
 class HomeRiverpod extends ChangeNotifier {

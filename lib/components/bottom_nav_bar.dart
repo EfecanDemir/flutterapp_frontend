@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterapp_frontend/constants.dart';
+import 'package:flutterapp_frontend/views/home.dart';
+import 'package:flutterapp_frontend/views/marketing.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
 class BottomNavBar extends StatelessWidget {
@@ -9,7 +11,7 @@ class BottomNavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const GNav(
+    return GNav(
       backgroundColor: kPrimaryColor,
       color: Colors.white,
       activeColor: Colors.black,
@@ -18,19 +20,28 @@ class BottomNavBar extends StatelessWidget {
       tabs: [
         GButton(
           icon: Icons.home,
-          text: 'Ana Ekran',  
+          text: 'Ana Ekran',
+          onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => Home(),    ),);},
         ),
         GButton(
-          icon: Icons.favorite_border,
-          text: 'Kuponlar', 
+          icon: Icons.auto_awesome_motion_sharp,
+          text: 'Kuponlarım',
+          //onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => Marketing(),    ),);}, 
           ),
         GButton(
           icon: Icons.moving,
           text: 'Oyna', 
+          //onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => Marketing(),    ),);},
+          ),
+          GButton(
+          icon: Icons.add_box_outlined ,
+          text: 'Oluştur', 
+          //onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => Marketing(),    ),);},
           ),
         GButton(
           icon: Icons.card_giftcard_outlined,
           text: 'Hediyeler', 
+          onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => Marketing(),    ),);},
           ),
       ],
     );
