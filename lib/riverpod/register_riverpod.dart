@@ -1,6 +1,6 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
-import 'package:flutterapp_frontend/components/loading_popup.dart';
+import 'package:flutterapp_frontend/views/home/components/loading_popup.dart';
 import 'package:flutterapp_frontend/service/service.dart';
 import 'package:flutterapp_frontend/views/home.dart';
 import 'package:get_storage/get_storage.dart';

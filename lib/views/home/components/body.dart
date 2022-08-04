@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutterapp_frontend/components/header_with_bonusbox.dart';
-import 'package:flutterapp_frontend/components/recommend_card.dart';
-import 'package:flutterapp_frontend/components/title_with_more_btn.dart';
+import 'package:flutterapp_frontend/views/home/components/header_with_bonusbox.dart';
+import 'package:flutterapp_frontend/views/home/components/recommend_card.dart';
+import 'package:flutterapp_frontend/views/home/components/title_with_more_btn.dart';
 import 'package:flutterapp_frontend/constants.dart';
 import 'package:slide_to_act/slide_to_act.dart';
 

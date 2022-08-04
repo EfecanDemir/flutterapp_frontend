@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterapp_frontend/constants.dart';
+import 'package:flutterapp_frontend/views/details_screen.dart';
+
 class RecommendsCards extends StatelessWidget {
   const RecommendsCards({
     Key? key,
@@ -11,7 +13,7 @@ class RecommendsCards extends StatelessWidget {
       scrollDirection: Axis.horizontal,
       child: Row(
         children: [
-          RecommendCard(image:"assets/images/karakomik.png",title: "Karakomik",time:"2 gün kaldı",positive: 1.25,negative: 3.75,press: (){},),
+          RecommendCard(image:"assets/images/karakomik.png",title: "Karakomik",time:"2 gün kaldı",positive: 1.25,negative: 3.75,press: (){Navigator.push(context, MaterialPageRoute(builder: (context) => DetailsScreen(),),);},),
            RecommendCard(image:"assets/images/karakomik.png",title: "Karakomik",time:"2 gün kaldı",positive: 1.25,negative: 3.75,press: (){},),
             RecommendCard(image:"assets/images/karakomik.png",title: "Karakomik",time:"2 gün kaldı",positive: 1.25,negative: 3.75,press: (){},),
              RecommendCard(image:"assets/images/karakomik.png",title: "Karakomik",time:"2 gün kaldı",positive: 1.25,negative: 3.75,press: (){},),
